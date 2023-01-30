@@ -14,7 +14,28 @@ class HistoryPage extends StatefulWidget {
 class HistoryPageState extends State<HistoryPage>
     with TickerProviderStateMixin {
   int currentIndex = 0;
-  // TabController tabController= TabController(length: 2, vsync: this);
+  TabController? tabController;
+
+  final List<Widget> tabs = const [
+    HistoryInWidget(),
+    HistoryOutPage(),
+  ];
+
+  @override
+  void initState() {
+    tabController = TabController(
+      length: tabs.length,
+      vsync: this,
+    );
+    tabController?.addListener(() {
+      if (tabController!.index != tabController!.previousIndex) {
+        setState(() {
+          currentIndex = tabController!.index;
+        });
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +45,7 @@ class HistoryPageState extends State<HistoryPage>
         return Scaffold(
           backgroundColor: backgroundColor,
           appBar: AppBar(
+            titleSpacing: 20,
             backgroundColor: backgroundColor,
             elevation: 0.0,
             title: Text(
@@ -42,14 +64,15 @@ class HistoryPageState extends State<HistoryPage>
               ),
             ],
             bottom: TabBar(
+              automaticIndicatorColorAdjustment: false,
               splashBorderRadius: BorderRadius.circular(30),
               indicatorSize: TabBarIndicatorSize.label,
-              indicatorColor: black,
-              indicatorWeight: 3,
+              indicatorColor: backgroundColor,
+              indicatorWeight: 0.1,
+              controller: tabController,
               onTap: ((value) {
                 setState(() {
                   currentIndex = value;
-                  print(DefaultTabController.of(context)?.index);
                 });
               }),
               tabs: [
@@ -57,9 +80,7 @@ class HistoryPageState extends State<HistoryPage>
                   child: Text(
                     "Riwayat Pemasukan",
                     style: primaryTextStyle.copyWith(
-                      color: DefaultTabController.of(context)?.index == 0
-                          ? primaryGreen
-                          : unClickColor,
+                      color: currentIndex == 0 ? primaryGreen : unClickColor,
                       fontSize: 18,
                     ),
                   ),
@@ -68,9 +89,7 @@ class HistoryPageState extends State<HistoryPage>
                   child: Text(
                     "Riwayat Pengeluaran",
                     style: primaryTextStyle.copyWith(
-                      color: DefaultTabController.of(context)?.index == 1
-                          ? primaryGreen
-                          : unClickColor,
+                      color: currentIndex == 1 ? primaryGreen : unClickColor,
                       fontSize: 18,
                     ),
                   ),
@@ -78,12 +97,10 @@ class HistoryPageState extends State<HistoryPage>
               ],
             ),
           ),
-          body: const TabBarView(
-            // controller: tabController,
-            children: [
-              HistoryInWidget(),
-              HistoryOutPage(),
-            ],
+          body: TabBarView(
+            physics: const BouncingScrollPhysics(),
+            controller: tabController,
+            children: tabs,
           ),
         );
       }),

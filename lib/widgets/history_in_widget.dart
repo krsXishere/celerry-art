@@ -24,6 +24,12 @@ class HistoryInWidgetState extends State<HistoryInWidget> {
                 decoration: BoxDecoration(
                   color: white,
                   borderRadius: BorderRadius.circular(defaultBorderRadius),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 5,
+                      color: grey.withOpacity(0.3),
+                    ),
+                  ],
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -60,10 +66,11 @@ class HistoryInWidgetState extends State<HistoryInWidget> {
                                   ),
                                 ),
                                 Text(
-                                  "Stok 30",
+                                  "Stok: 30",
                                   style: primaryTextStyle.copyWith(
                                     color: unClickColor,
                                   ),
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                                 Text(
                                   "Rp5.000",

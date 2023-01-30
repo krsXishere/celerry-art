@@ -39,6 +39,7 @@ dependencies:
   google_fonts: ^3.0.1
   flutter_svg: ^1.0.3
   syncfusion_flutter_charts: ^20.4.44
+  page_transition: ^2.0.9
 
 dev_dependencies:
   flutter_test:

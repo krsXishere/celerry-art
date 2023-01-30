@@ -1,8 +1,11 @@
 import 'package:celerry_art/common/theme.dart';
+import 'package:celerry_art/pages/bouqet_page.dart';
+import 'package:celerry_art/pages/inventory_in_page.dart';
+import 'package:celerry_art/pages/sale_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/parser.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:page_transition/page_transition.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -17,6 +20,7 @@ class _DashboardPageState extends State<DashboardPage> {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
+        titleSpacing: 20,
         backgroundColor: backgroundColor,
         elevation: 0.0,
         title: Text(
@@ -79,7 +83,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               "20",
                               style: primaryTextStyle.copyWith(
                                 fontWeight: medium,
-                                fontSize: 20,
+                                fontSize: 25,
                                 color: white,
                               ),
                             ),
@@ -87,6 +91,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               "Total Penjualan",
                               style: primaryTextStyle.copyWith(
                                 fontWeight: medium,
+                                fontSize: 15,
                                 color: white,
                               ),
                             ),
@@ -110,7 +115,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               "20",
                               style: primaryTextStyle.copyWith(
                                 fontWeight: medium,
-                                fontSize: 20,
+                                fontSize: 25,
                                 color: white,
                               ),
                             ),
@@ -118,6 +123,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               "Total Pembelian",
                               style: primaryTextStyle.copyWith(
                                 fontWeight: medium,
+                                fontSize: 15,
                                 color: white,
                               ),
                             ),
@@ -149,6 +155,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               "Total Pemakaian",
                               style: primaryTextStyle.copyWith(
                                 fontWeight: medium,
+                                fontSize: 15,
                                 color: white,
                               ),
                             ),
@@ -177,32 +184,62 @@ class _DashboardPageState extends State<DashboardPage> {
                   crossAxisCount: 3,
                   mainAxisSpacing: 10,
                   children: [
-                    Column(
-                      children: [
-                        SvgPicture.asset("assets/svg/gudang-masuk.svg"),
-                        Text(
-                          "Masuk",
-                          style: primaryTextStyle.copyWith(),
-                        ),
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          PageTransition(
+                              child: const InventoryInPage(),
+                              type: PageTransitionType.rightToLeft),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          SvgPicture.asset("assets/svg/gudang-masuk.svg"),
+                          Text(
+                            "Masuk",
+                            style: primaryTextStyle.copyWith(),
+                          ),
+                        ],
+                      ),
                     ),
-                    Column(
-                      children: [
-                        SvgPicture.asset("assets/svg/gudang-keluar.svg"),
-                        Text(
-                          "Keluar",
-                          style: primaryTextStyle.copyWith(),
-                        ),
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          PageTransition(
+                              child: const SalePage(),
+                              type: PageTransitionType.rightToLeft),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          SvgPicture.asset("assets/svg/gudang-keluar.svg"),
+                          Text(
+                            "Penjualan",
+                            style: primaryTextStyle.copyWith(),
+                          ),
+                        ],
+                      ),
                     ),
-                    Column(
-                      children: [
-                        SvgPicture.asset("assets/svg/paket-bouqet.svg"),
-                        Text(
-                          "Paket Bouqet",
-                          style: primaryTextStyle.copyWith(),
-                        ),
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          PageTransition(
+                              child: const BouqetPage(),
+                              type: PageTransitionType.rightToLeft),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          SvgPicture.asset("assets/svg/paket-bouqet.svg"),
+                          Text(
+                            "Paket Bouqet",
+                            style: primaryTextStyle.copyWith(),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -275,6 +312,10 @@ dynamic getColumnData() {
     SalesData("Jun", 21),
     SalesData("Jul", 30),
     SalesData("Agu", 34),
+    SalesData("Sep", 34),
+    SalesData("Okt", 34),
+    SalesData("Nov", 34),
+    SalesData("Des", 34),
   ];
 
   return columnData;

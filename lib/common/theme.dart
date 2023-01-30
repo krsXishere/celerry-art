@@ -13,6 +13,9 @@ Color grey = const Color(0xff808080);
 Color greySecond = const Color(0xff797979);
 Color greyThird = const Color(0xff767676);
 Color unClickColor = const Color(0XFFD9D9D9);
+Color creameColor = const Color(0XFFFFC286);
+Color thirdColor = const Color(0XFFDBE9B7);
+Color redColor = const Color(0XFFFE6656);
 
 TextStyle primaryTextStyle = GoogleFonts.poppins(
   color: black,
