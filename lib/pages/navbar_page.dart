@@ -1,6 +1,7 @@
 import 'package:celerry_art/common/theme.dart';
 import 'package:celerry_art/pages/dashboard_page.dart';
 import 'package:celerry_art/pages/history_page.dart';
+import 'package:celerry_art/pages/report_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -17,7 +18,7 @@ class _NavbarPageState extends State<NavbarPage> {
   final List<Widget> pages = const [
     DashboardPage(),
     HistoryPage(),
-    DashboardPage(),
+    ReportPage(),
   ];
 
   @override

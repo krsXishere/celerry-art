@@ -1,6 +1,10 @@
 import 'package:celerry_art/common/theme.dart';
+import 'package:celerry_art/pages/edit_bouqet_page.dart';
+import 'package:celerry_art/pages/insert_bouqet_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:page_transition/page_transition.dart';
+import 'edit_item_page.dart';
 
 class BouqetPage extends StatefulWidget {
   const BouqetPage({super.key});
@@ -41,12 +45,44 @@ class _BouqetPageState extends State<BouqetPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Celerry Bouqet",
-                style: primaryTextStyle.copyWith(
-                  fontSize: 20,
-                  fontWeight: semiBold,
-                ),
+              Row(
+                children: [
+                  Text(
+                    "Celerry Bouqet",
+                    style: primaryTextStyle.copyWith(
+                      fontSize: 20,
+                      fontWeight: semiBold,
+                    ),
+                  ),
+                  const Spacer(),
+                  GestureDetector(
+                    child: SvgPicture.asset("assets/svg/tambah.svg"),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        PageTransition(
+                          child: const InsertBouqetPage(),
+                          type: PageTransitionType.rightToLeft,
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  GestureDetector(
+                    child: SvgPicture.asset("assets/svg/edit.svg"),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        PageTransition(
+                          child: const EditBouqetPage(),
+                          type: PageTransitionType.rightToLeft,
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
               SizedBox(
                 height: defaultPadding,

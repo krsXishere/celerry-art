@@ -142,7 +142,9 @@ class InventoryInPageState extends State<InventoryInPage> {
                                         Text(
                                           "Bunga Imitasi",
                                           style: primaryTextStyle.copyWith(
-                                              fontSize: 18, fontWeight: medium),
+                                            fontSize: 18,
+                                            fontWeight: medium,
+                                          ),
                                         ),
                                         Text(
                                           "Stok: 30",

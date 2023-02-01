@@ -7,6 +7,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:page_transition/page_transition.dart';
 
+import '../data/report_profit_data.dart';
+
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
 
@@ -15,6 +17,14 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+  late TooltipBehavior tooltipProfit;
+
+  @override
+  void initState() {
+    tooltipProfit = TooltipBehavior(enable: true);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -268,13 +278,24 @@ class _DashboardPageState extends State<DashboardPage> {
                     ],
                   ),
                   child: SfCartesianChart(
+                    tooltipBehavior: tooltipProfit,
                     primaryXAxis: CategoryAxis(),
                     primaryYAxis: NumericAxis(),
                     series: <ChartSeries>[
-                      ColumnSeries<SalesData, String>(
+                      SplineAreaSeries<SalesData, String>(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            secondaryGreen,
+                            white,
+                          ],
+                        ),
+                        enableTooltip: true,
+                        borderWidth: 5,
+                        splineType: SplineType.clamped,
+                        borderColor: primaryGreen,
                         color: secondaryGreen,
-                        borderRadius:
-                            BorderRadius.circular(defaultBorderRadius),
                         dataSource: getColumnData(),
                         xValueMapper: (SalesData sales, _) => sales.x,
                         yValueMapper: (SalesData sales, _) => sales.y,
@@ -292,31 +313,4 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
     );
   }
-}
-
-class SalesData {
-  String x;
-  double y;
-
-  SalesData(
-    this.x,
-    this.y,
-  );
-}
-
-dynamic getColumnData() {
-  List<SalesData> columnData = <SalesData>[
-    SalesData("Jan", 20),
-    SalesData("Feb", 25),
-    SalesData("Mar", 22),
-    SalesData("Jun", 21),
-    SalesData("Jul", 30),
-    SalesData("Agu", 34),
-    SalesData("Sep", 34),
-    SalesData("Okt", 34),
-    SalesData("Nov", 34),
-    SalesData("Des", 34),
-  ];
-
-  return columnData;
 }
