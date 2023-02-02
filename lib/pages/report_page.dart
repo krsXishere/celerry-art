@@ -17,13 +17,29 @@ class _ReportPageState extends State<ReportPage> {
   late List<ReportStockData> reportStockData;
   late TooltipBehavior tooltipBehavior;
   late TooltipBehavior tooltipProfit;
+  late int itemStock;
 
   @override
   void initState() {
     reportStockData = getPieData();
-    tooltipBehavior = TooltipBehavior(enable: true);
-    tooltipProfit = TooltipBehavior(enable: true);
+    tooltipBehavior = TooltipBehavior(
+      enable: true,
+      textStyle: primaryTextStyle.copyWith(
+        color: white,
+      ),
+    );
+    tooltipProfit = TooltipBehavior(enable: true,
+      textStyle: primaryTextStyle.copyWith(
+        color: white,
+      ),
+    );
+    itemStock = countItems();
     super.initState();
+  }
+
+  int countItems() {
+    int item = reportStockData.length;
+    return item;
   }
 
   @override
@@ -80,6 +96,9 @@ class _ReportPageState extends State<ReportPage> {
                     ],
                   ),
                   child: SfCartesianChart(
+                    onTooltipRender: (TooltipArgs args) {
+                      args.header = "Bouqet Terjual";
+                    },
                     margin: EdgeInsets.all(defaultPadding),
                     plotAreaBorderWidth: 0,
                     plotAreaBackgroundColor: Colors.transparent,
@@ -114,6 +133,7 @@ class _ReportPageState extends State<ReportPage> {
                   height: defaultPadding,
                 ),
                 Container(
+                  padding: EdgeInsets.all(defaultPadding),
                   decoration: BoxDecoration(
                     color: white,
                     borderRadius: BorderRadius.circular(defaultBorderRadius),
@@ -127,25 +147,22 @@ class _ReportPageState extends State<ReportPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: EdgeInsets.all(defaultPadding),
-                        child: Text(
-                          "Diagram Stok Barang",
-                          style: primaryTextStyle.copyWith(
-                            fontSize: 20,
-                            fontWeight: semiBold,
-                          ),
+                      Text(
+                        "Diagram Stok Barang",
+                        style: primaryTextStyle.copyWith(
+                          fontSize: 20,
+                          fontWeight: semiBold,
                         ),
                       ),
                       Stack(
+                        alignment: Alignment.center,
                         children: [
                           Positioned(
-                            left: 75,
-                            top: 120,
+                            top: 80,
                             child: Column(
                               children: [
                                 Text(
-                                  "2",
+                                  "$itemStock",
                                   style:
                                       primaryTextStyle.copyWith(fontSize: 18),
                                 ),
@@ -157,6 +174,7 @@ class _ReportPageState extends State<ReportPage> {
                             ),
                           ),
                           SfCircularChart(
+                            margin: EdgeInsets.zero,
                             palette: [
                               primaryGreen,
                               secondaryGreen,
@@ -166,10 +184,11 @@ class _ReportPageState extends State<ReportPage> {
                             ],
                             tooltipBehavior: tooltipBehavior,
                             legend: Legend(
+                              toggleSeriesVisibility: true,
+                              position: LegendPosition.bottom,
                               isVisible: true,
                               textStyle: primaryTextStyle,
                               overflowMode: LegendItemOverflowMode.wrap,
-                              alignment: ChartAlignment.center,
                               isResponsive: true,
                               orientation: LegendItemOrientation.vertical,
                             ),

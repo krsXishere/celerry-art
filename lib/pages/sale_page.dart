@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../common/theme.dart';
 
 class SalePage extends StatefulWidget {
@@ -54,6 +54,7 @@ class _SalePageState extends State<SalePage> {
                   height: defaultPadding,
                 ),
                 GridView.count(
+                  physics: const NeverScrollableScrollPhysics(),
                   crossAxisSpacing: defaultPadding,
                   mainAxisSpacing: defaultPadding,
                   shrinkWrap: true,
@@ -194,30 +195,219 @@ class _SalePageState extends State<SalePage> {
                 SizedBox(
                   height: defaultPadding,
                 ),
-                // SizedBox(
-                //   child: Row(
-                //     children: [
-                //       SvgPicture.asset(
-                //         "top-seller-1.svg",
-                //       ),
-                //       ListTile(
-                //         leading: Container(
-                //           decoration: BoxDecoration(
-                //             color: secondaryGreen,
-                //             borderRadius:
-                //                 BorderRadius.circular(defaultBorderRadius),
-                //           ),
-                //           child: const FlutterLogo(size: 100),
-                //         ),
-                //         title: Text(
-                //           "Bouqet Extra Small",
-                //           style: primaryTextStyle.copyWith(
-                //               fontSize: 18, fontWeight: medium),
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
+                SizedBox(
+                  height: 70,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: SvgPicture.asset(
+                          "assets/svg/top-seller-1.svg",
+                        ),
+                      ),
+                      Expanded(
+                        flex: 8,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: white,
+                            borderRadius:
+                                BorderRadius.circular(defaultBorderRadius),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 5,
+                                color: grey.withOpacity(0.3),
+                                offset: const Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  margin: const EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    color: secondaryGreen,
+                                    borderRadius: BorderRadius.circular(
+                                        defaultBorderRadius),
+                                  ),
+                                  child: const FlutterLogo(
+                                    size: 80,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: defaultPadding,
+                              ),
+                              Expanded(
+                                flex: 7,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Flexible(
+                                      child: Text(
+                                        "Bouqet Extra Small",
+                                        style: primaryTextStyle.copyWith(
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  height: 70,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: SvgPicture.asset(
+                          "assets/svg/top-seller-2.svg",
+                        ),
+                      ),
+                      Expanded(
+                        flex: 8,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: white,
+                            borderRadius:
+                                BorderRadius.circular(defaultBorderRadius),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 5,
+                                color: grey.withOpacity(0.3),
+                                offset: const Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  margin: const EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    color: secondaryGreen,
+                                    borderRadius: BorderRadius.circular(
+                                        defaultBorderRadius),
+                                  ),
+                                  child: const FlutterLogo(
+                                    size: 80,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: defaultPadding,
+                              ),
+                              Expanded(
+                                flex: 7,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Flexible(
+                                      child: Text(
+                                        "Bouqet Silver",
+                                        style: primaryTextStyle.copyWith(
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  height: 70,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: SvgPicture.asset(
+                          "assets/svg/top-seller-3.svg",
+                        ),
+                      ),
+                      Expanded(
+                        flex: 8,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: white,
+                            borderRadius:
+                                BorderRadius.circular(defaultBorderRadius),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 5,
+                                color: grey.withOpacity(0.3),
+                                offset: const Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  margin: const EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    color: secondaryGreen,
+                                    borderRadius: BorderRadius.circular(
+                                        defaultBorderRadius),
+                                  ),
+                                  child: const FlutterLogo(
+                                    size: 80,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: defaultPadding,
+                              ),
+                              Expanded(
+                                flex: 7,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Flexible(
+                                      child: Text(
+                                        "Bouqet Platinum",
+                                        style: primaryTextStyle.copyWith(
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 100,
+                ),
               ],
             ),
           ),

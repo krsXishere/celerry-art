@@ -4,7 +4,6 @@ import 'package:celerry_art/pages/insert_bouqet_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
-import 'edit_item_page.dart';
 
 class BouqetPage extends StatefulWidget {
   const BouqetPage({super.key});

@@ -2,6 +2,7 @@ import 'package:celerry_art/common/theme.dart';
 import 'package:celerry_art/pages/bouqet_page.dart';
 import 'package:celerry_art/pages/inventory_in_page.dart';
 import 'package:celerry_art/pages/sale_page.dart';
+import 'package:celerry_art/pages/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -21,7 +22,12 @@ class _DashboardPageState extends State<DashboardPage> {
 
   @override
   void initState() {
-    tooltipProfit = TooltipBehavior(enable: true);
+    tooltipProfit = TooltipBehavior(
+      enable: true,
+      textStyle: primaryTextStyle.copyWith(
+        color: white,
+      ),
+    );
     super.initState();
   }
 
@@ -41,10 +47,21 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: SvgPicture.asset(
-              "assets/svg/celerry-icon-1.svg",
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                PageTransition(
+                  child: const SplashScreen(),
+                  type: PageTransitionType.rightToLeft,
+                ),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: SvgPicture.asset(
+                "assets/svg/celerry-icon-1.svg",
+              ),
             ),
           ),
         ],
@@ -224,7 +241,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       },
                       child: Column(
                         children: [
-                          SvgPicture.asset("assets/svg/gudang-keluar.svg"),
+                          SvgPicture.asset("assets/svg/penjualan.svg"),
                           Text(
                             "Penjualan",
                             style: primaryTextStyle.copyWith(),
@@ -243,7 +260,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       },
                       child: Column(
                         children: [
-                          SvgPicture.asset("assets/svg/paket-bouqet.svg"),
+                          SvgPicture.asset("assets/svg/bouqet.svg"),
                           Text(
                             "Paket Bouqet",
                             style: primaryTextStyle.copyWith(),
@@ -278,6 +295,9 @@ class _DashboardPageState extends State<DashboardPage> {
                     ],
                   ),
                   child: SfCartesianChart(
+                    onTooltipRender: (TooltipArgs args) {
+                      args.header = "Bouqet Terjual";
+                    },
                     tooltipBehavior: tooltipProfit,
                     primaryXAxis: CategoryAxis(),
                     primaryYAxis: NumericAxis(),

@@ -1,4 +1,5 @@
 import 'package:celerry_art/pages/navbar_page.dart';
+import 'package:celerry_art/pages/splashscreen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: NavbarPage(),
+      home: SplashScreen(),
     );
   }
 }
