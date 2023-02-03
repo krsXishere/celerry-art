@@ -84,7 +84,7 @@ class _EditBouqetPageState extends State<EditBouqetPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Nama Bahan",
+                                "Nama Bouqet",
                                 style: primaryTextStyle.copyWith(
                                   fontSize: 18,
                                 ),
@@ -100,7 +100,7 @@ class _EditBouqetPageState extends State<EditBouqetPage> {
                                     ),
                                     filled: false,
                                     border: InputBorder.none,
-                                    hintText: "Masukkan nama bahan",
+                                    hintText: "Masukkan nama baru bouqet",
                                     hintStyle: primaryTextStyle.copyWith(
                                       fontWeight: regular,
                                       color: grey,
@@ -124,7 +124,7 @@ class _EditBouqetPageState extends State<EditBouqetPage> {
                                 height: 5,
                               ),
                               Text(
-                                "Harga Bahan Satuan",
+                                "Harga Bouqet",
                                 style: primaryTextStyle.copyWith(
                                   fontSize: 18,
                                 ),
@@ -140,7 +140,7 @@ class _EditBouqetPageState extends State<EditBouqetPage> {
                                     ),
                                     filled: false,
                                     border: InputBorder.none,
-                                    hintText: "Masukkan Harga bahan",
+                                    hintText: "Masukkan harga baru bouqet",
                                     hintStyle: primaryTextStyle.copyWith(
                                       fontWeight: regular,
                                       fontSize: 15,

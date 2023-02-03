@@ -1,4 +1,5 @@
 import 'package:celerry_art/common/theme.dart';
+import 'package:celerry_art/pages/checkout_page.dart';
 import 'package:celerry_art/pages/edit_bouqet_page.dart';
 import 'package:celerry_art/pages/insert_bouqet_page.dart';
 import 'package:flutter/material.dart';
@@ -92,66 +93,77 @@ class _BouqetPageState extends State<BouqetPage> {
                   //ganti jadi listview
                   child: Column(
                     children: [
-                      Container(
-                        margin: EdgeInsets.only(bottom: defaultPadding),
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: white,
-                          borderRadius:
-                              BorderRadius.circular(defaultBorderRadius),
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 5,
-                              color: grey.withOpacity(0.3),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              child: const CheckOutPage(),
+                              type: PageTransitionType.rightToLeft,
                             ),
-                          ],
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              flex: 3,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: secondaryGreen,
-                                  borderRadius: BorderRadius.circular(
-                                      defaultBorderRadius),
-                                ),
-                                child: const FlutterLogo(
-                                  size: 80,
-                                ),
+                          );
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(bottom: defaultPadding),
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: white,
+                            borderRadius:
+                                BorderRadius.circular(defaultBorderRadius),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 5,
+                                color: grey.withOpacity(0.3),
                               ),
-                            ),
-                            SizedBox(
-                              width: defaultPadding,
-                            ),
-                            Expanded(
-                              flex: 7,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Flexible(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Bouqet Extra Small",
-                                          style: primaryTextStyle.copyWith(
-                                            fontSize: 18,
-                                          ),
-                                        ),
-                                        Text(
-                                          "Rp35.000",
-                                          style: primaryTextStyle,
-                                        ),
-                                      ],
-                                    ),
+                            ],
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: secondaryGreen,
+                                    borderRadius: BorderRadius.circular(
+                                        defaultBorderRadius),
                                   ),
-                                ],
+                                  child: const FlutterLogo(
+                                    size: 80,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ],
+                              SizedBox(
+                                width: defaultPadding,
+                              ),
+                              Expanded(
+                                flex: 7,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Flexible(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Bouqet Extra Small",
+                                            style: primaryTextStyle.copyWith(
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                          Text(
+                                            "Rp35.000",
+                                            style: primaryTextStyle,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Container(

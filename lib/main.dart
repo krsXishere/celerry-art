@@ -1,4 +1,3 @@
-import 'package:celerry_art/pages/navbar_page.dart';
 import 'package:celerry_art/pages/splashscreen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

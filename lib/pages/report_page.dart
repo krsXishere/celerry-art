@@ -28,7 +28,8 @@ class _ReportPageState extends State<ReportPage> {
         color: white,
       ),
     );
-    tooltipProfit = TooltipBehavior(enable: true,
+    tooltipProfit = TooltipBehavior(
+      enable: true,
       textStyle: primaryTextStyle.copyWith(
         color: white,
       ),
@@ -164,7 +165,7 @@ class _ReportPageState extends State<ReportPage> {
                                 Text(
                                   "$itemStock",
                                   style:
-                                      primaryTextStyle.copyWith(fontSize: 18),
+                                      primaryTextStyle.copyWith(fontSize: 30),
                                 ),
                                 Text(
                                   "Bahan Baku",
