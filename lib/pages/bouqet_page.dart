@@ -1,4 +1,5 @@
 import 'package:celerry_art/common/theme.dart';
+import 'package:celerry_art/pages/checkout_custom_page.dart';
 import 'package:celerry_art/pages/checkout_page.dart';
 import 'package:celerry_art/pages/edit_bouqet_page.dart';
 import 'package:celerry_art/pages/insert_bouqet_page.dart';
@@ -56,6 +57,7 @@ class _BouqetPageState extends State<BouqetPage> {
                   ),
                   const Spacer(),
                   GestureDetector(
+                    
                     child: SvgPicture.asset("assets/svg/tambah.svg"),
                     onTap: () {
                       Navigator.push(
@@ -98,7 +100,9 @@ class _BouqetPageState extends State<BouqetPage> {
                           Navigator.push(
                             context,
                             PageTransition(
-                              child: const CheckOutPage(),
+                              child: const CheckOutPage(
+                                hargaBouqet: 35000,
+                              ),
                               type: PageTransitionType.rightToLeft,
                             ),
                           );
@@ -166,190 +170,229 @@ class _BouqetPageState extends State<BouqetPage> {
                           ),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(bottom: defaultPadding),
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: white,
-                          borderRadius:
-                              BorderRadius.circular(defaultBorderRadius),
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 5,
-                              color: grey.withOpacity(0.3),
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              flex: 3,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: secondaryGreen,
-                                  borderRadius: BorderRadius.circular(
-                                      defaultBorderRadius),
-                                ),
-                                child: const FlutterLogo(
-                                  size: 80,
-                                ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              child: const CheckOutPage(
+                                hargaBouqet: 60000,
                               ),
+                              type: PageTransitionType.rightToLeft,
                             ),
-                            SizedBox(
-                              width: defaultPadding,
-                            ),
-                            Expanded(
-                              flex: 7,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Flexible(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Bouqet Silver",
-                                          style: primaryTextStyle.copyWith(
-                                            fontSize: 18,
-                                          ),
-                                        ),
-                                        Text(
-                                          "Rp60.000",
-                                          style: primaryTextStyle,
-                                        ),
-                                      ],
-                                    ),
+                          );
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(bottom: defaultPadding),
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: white,
+                            borderRadius:
+                                BorderRadius.circular(defaultBorderRadius),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 5,
+                                color: grey.withOpacity(0.3),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: secondaryGreen,
+                                    borderRadius: BorderRadius.circular(
+                                        defaultBorderRadius),
                                   ),
-                                ],
+                                  child: const FlutterLogo(
+                                    size: 80,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ],
+                              SizedBox(
+                                width: defaultPadding,
+                              ),
+                              Expanded(
+                                flex: 7,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Flexible(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Bouqet Silver",
+                                            style: primaryTextStyle.copyWith(
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                          Text(
+                                            "Rp60.000",
+                                            style: primaryTextStyle,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(bottom: defaultPadding),
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: white,
-                          borderRadius:
-                              BorderRadius.circular(defaultBorderRadius),
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 5,
-                              color: grey.withOpacity(0.3),
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              flex: 3,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: secondaryGreen,
-                                  borderRadius: BorderRadius.circular(
-                                      defaultBorderRadius),
-                                ),
-                                child: const FlutterLogo(
-                                  size: 80,
-                                ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              child: const CheckOutPage(
+                                hargaBouqet: 100000,
                               ),
+                              type: PageTransitionType.rightToLeft,
                             ),
-                            SizedBox(
-                              width: defaultPadding,
-                            ),
-                            Expanded(
-                              flex: 7,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Flexible(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Bouqet Gold",
-                                          style: primaryTextStyle.copyWith(
-                                            fontSize: 18,
-                                          ),
-                                        ),
-                                        Text(
-                                          "Rp100.000",
-                                          style: primaryTextStyle,
-                                        ),
-                                      ],
-                                    ),
+                          );
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(bottom: defaultPadding),
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: white,
+                            borderRadius:
+                                BorderRadius.circular(defaultBorderRadius),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 5,
+                                color: grey.withOpacity(0.3),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: secondaryGreen,
+                                    borderRadius: BorderRadius.circular(
+                                        defaultBorderRadius),
                                   ),
-                                ],
+                                  child: const FlutterLogo(
+                                    size: 80,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ],
+                              SizedBox(
+                                width: defaultPadding,
+                              ),
+                              Expanded(
+                                flex: 7,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Flexible(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Bouqet Gold",
+                                            style: primaryTextStyle.copyWith(
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                          Text(
+                                            "Rp100.000",
+                                            style: primaryTextStyle,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(bottom: defaultPadding),
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: white,
-                          borderRadius:
-                              BorderRadius.circular(defaultBorderRadius),
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 5,
-                              color: grey.withOpacity(0.3),
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              flex: 3,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: secondaryGreen,
-                                  borderRadius: BorderRadius.circular(
-                                      defaultBorderRadius),
-                                ),
-                                child: const FlutterLogo(
-                                  size: 80,
-                                ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              child: const CheckOutCustomPage(
+                                hargaBouqet: 150000,
                               ),
+                              type: PageTransitionType.rightToLeft,
                             ),
-                            SizedBox(
-                              width: defaultPadding,
-                            ),
-                            Expanded(
-                              flex: 7,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Flexible(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Bouqet Platinum",
-                                          style: primaryTextStyle.copyWith(
-                                            fontSize: 18,
-                                          ),
-                                        ),
-                                        Text(
-                                          "Rp150.000",
-                                          style: primaryTextStyle,
-                                        ),
-                                      ],
-                                    ),
+                          );
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(bottom: defaultPadding),
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: white,
+                            borderRadius:
+                                BorderRadius.circular(defaultBorderRadius),
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 5,
+                                color: grey.withOpacity(0.3),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: secondaryGreen,
+                                    borderRadius: BorderRadius.circular(
+                                        defaultBorderRadius),
                                   ),
-                                ],
+                                  child: const FlutterLogo(
+                                    size: 80,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ],
+                              SizedBox(
+                                width: defaultPadding,
+                              ),
+                              Expanded(
+                                flex: 7,
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Flexible(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Bouqet Platinum",
+                                            style: primaryTextStyle.copyWith(
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                          Text(
+                                            "Rp150.000",
+                                            style: primaryTextStyle,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],

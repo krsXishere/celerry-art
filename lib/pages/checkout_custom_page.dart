@@ -1,23 +1,27 @@
 import 'dart:developer';
 
-import 'package:celerry_art/common/theme.dart';
+import 'package:celerry_art/pages/insert_bouqet_page.dart';
+import 'package:celerry_art/pages/insert_custom_item_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:page_transition/page_transition.dart';
 
-class CheckOutPage extends StatefulWidget {
+import '../common/theme.dart';
+
+class CheckOutCustomPage extends StatefulWidget {
   final int hargaBouqet;
-  const CheckOutPage({
+  const CheckOutCustomPage({
     super.key,
     required this.hargaBouqet,
   });
 
   @override
-  State<CheckOutPage> createState() => _CheckOutPageState();
+  State<CheckOutCustomPage> createState() => _CheckOutCustomPageState();
 }
 
-class _CheckOutPageState extends State<CheckOutPage> {
+class _CheckOutCustomPageState extends State<CheckOutCustomPage> {
   int summaryItems = 0;
   bool isSelectedAll = false;
   List<TextEditingController>? quantityController = [];
@@ -506,12 +510,35 @@ class _CheckOutPageState extends State<CheckOutPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Pilih Bahan",
-                  style: primaryTextStyle.copyWith(
-                    fontSize: 20,
-                    fontWeight: semiBold,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Pilih Bahan",
+                      style: primaryTextStyle.copyWith(
+                        fontSize: 20,
+                        fontWeight: semiBold,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          PageTransition(
+                            child: const InsertCustomItemPage(),
+                            type: PageTransitionType.rightToLeft,
+                          ),
+                        );
+                      },
+                      child: Text(
+                        "Tambah Bahan Custom",
+                        style: primaryTextStyle.copyWith(
+                          fontSize: 16,
+                          color: grey,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: defaultPadding,

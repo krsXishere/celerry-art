@@ -41,6 +41,9 @@ dependencies:
   syncfusion_flutter_charts: ^20.4.44
   page_transition: ^2.0.9
   circular_reveal_animation: ^2.0.1
+  modal_bottom_sheet: ^2.1.2
+  intl: ^0.18.0
+  roundcheckbox: ^2.0.5
 
 dev_dependencies:
   flutter_test:

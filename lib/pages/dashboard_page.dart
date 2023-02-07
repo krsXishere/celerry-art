@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:page_transition/page_transition.dart';
-
 import '../data/report_profit_data.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -95,8 +94,6 @@ class _DashboardPageState extends State<DashboardPage> {
                     children: [
                       Container(
                         padding: const EdgeInsets.all(10),
-                        width: 100,
-                        height: 100,
                         decoration: BoxDecoration(
                           color: secondaryGreen,
                           borderRadius:
@@ -127,8 +124,6 @@ class _DashboardPageState extends State<DashboardPage> {
                       ),
                       Container(
                         padding: const EdgeInsets.all(10),
-                        width: 100,
-                        height: 100,
                         decoration: BoxDecoration(
                           color: secondaryGreen,
                           borderRadius:
@@ -159,8 +154,6 @@ class _DashboardPageState extends State<DashboardPage> {
                       ),
                       Container(
                         padding: const EdgeInsets.all(10),
-                        width: 100,
-                        height: 100,
                         decoration: BoxDecoration(
                           color: secondaryGreen,
                           borderRadius:
@@ -241,7 +234,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       },
                       child: Column(
                         children: [
-                          SvgPicture.asset("assets/svg/penjualan.svg"),
+                          SvgPicture.asset("assets/svg/penjualan-rev.svg"),
                           Text(
                             "Penjualan",
                             style: primaryTextStyle.copyWith(),
@@ -260,7 +253,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       },
                       child: Column(
                         children: [
-                          SvgPicture.asset("assets/svg/bouqet.svg"),
+                          SvgPicture.asset("assets/svg/bouqet-rev.svg"),
                           Text(
                             "Paket Bouqet",
                             style: primaryTextStyle.copyWith(),
