@@ -2,7 +2,6 @@ import 'package:celerry_art/common/theme.dart';
 import 'package:celerry_art/pages/bouqet_page.dart';
 import 'package:celerry_art/pages/inventory_in_page.dart';
 import 'package:celerry_art/pages/sale_page.dart';
-import 'package:celerry_art/pages/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -46,21 +45,10 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
         ),
         actions: [
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                PageTransition(
-                  child: const SplashScreen(),
-                  type: PageTransitionType.rightToLeft,
-                ),
-              );
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: SvgPicture.asset(
-                "assets/svg/celerry-icon-1.svg",
-              ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: SvgPicture.asset(
+              "assets/svg/celerry-icon-1.svg",
             ),
           ),
         ],
@@ -167,7 +155,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               "20",
                               style: primaryTextStyle.copyWith(
                                 fontWeight: medium,
-                                fontSize: 20,
+                                fontSize: 25,
                                 color: white,
                               ),
                             ),

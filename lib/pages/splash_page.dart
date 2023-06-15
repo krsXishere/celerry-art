@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void nextPage() {
     timer = Timer(
-      const Duration(seconds: 5),
+      const Duration(seconds: 3),
       () {
         Navigator.pushReplacement(
           context,
@@ -35,6 +35,12 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     nextPage();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
   }
 
   @override

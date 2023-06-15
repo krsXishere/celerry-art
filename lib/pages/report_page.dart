@@ -18,6 +18,8 @@ class _ReportPageState extends State<ReportPage> {
   late TooltipBehavior tooltipBehavior;
   late TooltipBehavior tooltipProfit;
   late int itemStock;
+  late SelectionBehavior selectionBehavior;
+  num pointIndex = 0;
 
   @override
   void initState() {
@@ -33,6 +35,10 @@ class _ReportPageState extends State<ReportPage> {
       textStyle: primaryTextStyle.copyWith(
         color: white,
       ),
+    );
+    selectionBehavior = SelectionBehavior(
+      enable: true,
+      selectedColor: primaryGreen,
     );
     itemStock = countItems();
     super.initState();
@@ -98,17 +104,38 @@ class _ReportPageState extends State<ReportPage> {
                   ),
                   child: SfCartesianChart(
                     onTooltipRender: (TooltipArgs args) {
-                      args.header = "Bouqet Terjual";
+                      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+                        setState(() {
+                          pointIndex = args.pointIndex!;
+                        });
+                      });
+
+                      args.header = 'Bouqet Terjual';
+                    },
+                    onMarkerRender: (MarkerRenderArgs args) {
+                      if (!(args.pointIndex == pointIndex)) {
+                        args.markerHeight = 0;
+                        args.markerWidth = 0;
+                      }
                     },
                     margin: EdgeInsets.all(defaultPadding),
                     plotAreaBorderWidth: 0,
                     plotAreaBackgroundColor: Colors.transparent,
                     plotAreaBorderColor: Colors.transparent,
                     tooltipBehavior: tooltipProfit,
-                    primaryXAxis: CategoryAxis(),
-                    primaryYAxis: NumericAxis(),
+                    primaryXAxis: CategoryAxis(
+                      minorTickLines: const MinorTickLines(size: 0),
+                      labelPlacement: LabelPlacement.onTicks,
+                      labelStyle: primaryTextStyle,
+                      rangePadding: ChartRangePadding.round,
+                    ),
+                    primaryYAxis: NumericAxis(
+                      isVisible: false,
+                    ),
                     series: <ChartSeries>[
                       SplineAreaSeries<SalesData, String>(
+                        selectionBehavior: selectionBehavior,
+                        cardinalSplineTension: 0,
                         gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -116,6 +143,18 @@ class _ReportPageState extends State<ReportPage> {
                             secondaryGreen,
                             white,
                           ],
+                        ),
+                        // dataLabelSettings: DataLabelSettings(
+                        //   // alignment: ChartAlignment.center
+                        //   isVisible: true,
+                        //   labelAlignment: ChartDataLabelAlignment.top,
+                        //   color: secondaryGreen,
+                        // ),
+                        markerSettings: MarkerSettings(
+                          isVisible: true,
+                          shape: DataMarkerType.circle,
+                          borderColor: white,
+                          color: Colors.yellow,
                         ),
                         borderWidth: 5,
                         enableTooltip: true,

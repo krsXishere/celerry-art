@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:math' show sqrt, max;
-// import 'dart:ui' show lerpDouble;
 
 @immutable
 class CircularRevealClipper extends CustomClipper<Path> {
